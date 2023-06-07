@@ -1,5 +1,7 @@
 #! bin/bash
 
+SOURCE ./commom.sh
+
 COMPONENT=frontend
 
 echo -e "\e[92m############ $COMPONENT Installation started ############\e[0m"
@@ -8,6 +10,7 @@ echo -e "\e[36m Installing Nginx\e[0m"
 yum install nginx -y
 systemctl enable nginx
 systemctl start nginx
+status $?
 
 echo -e "\e[36m Downloading the $COMPONENT component\e[0m"
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
