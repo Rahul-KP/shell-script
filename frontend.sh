@@ -1,6 +1,6 @@
 #! bin/bash
 
-SOURCE ./commom.sh
+source ./commom.sh
 
 COMPONENT=frontend
 
