@@ -16,7 +16,7 @@ systemctl start mongod
 status $?
 
 echo -ne "\e[36m updating $COMPONENT IP address \e[0m"
-sed -i -e "s/127.0.0.1/0.0.0.0/" etc/mongod.conf
+sed -i -e "s/127.0.0.1/0.0.0.0/" /etc/mongod.conf
 systemctl daemon-reload mongod
 status $?
 
