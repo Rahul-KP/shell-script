@@ -2,7 +2,7 @@
 
 COMPONENT=MongoDB
 
-SOURCE ./common.sh
+source ./common.sh
 
 echo -e "\e[92m############ $COMPONENT Installation started ############\e[0m"
 
