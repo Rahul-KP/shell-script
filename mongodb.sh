@@ -17,10 +17,10 @@ status $?
 
 echo -ne "\e[36m updating $COMPONENT IP address \e[0m"
 sed -i -e "s/127.0.0.1/0.0.0.0/" /etc/mongod.conf
-systemctl daemon-reload mongod
 status $?
 
 echo -ne "\e[36m Starting $COMPONENT \e[0m"
+systemctl daemon-reload mongod
 systemctl enable mongod
 #using restart so that there is no error even if the script is run when mongodb has already started
 systemctl restart mongodb
