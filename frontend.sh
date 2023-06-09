@@ -8,9 +8,9 @@ LOGFILE="/tmp/${COMPONENT}.log"
 echo -e "\e[92m############ $COMPONENT Installation started ############\e[0m"
 
 echo -ne "\e[36m Installing Nginx\e[0m"
-yum install nginx -y	&>>LOGFILE
-systemctl enable nginx	&>>LOGFILE
-systemctl start nginx	&>>LOGFILE
+yum install nginx -y	&>>$LOGFILE
+systemctl enable nginx	&>>$LOGFILE
+systemctl start nginx	&>>$LOGFILE
 status $?
 
 echo -ne "\e[36m Downloading the $COMPONENT component\e[0m"
@@ -23,7 +23,7 @@ rm -rf *
 status $?
 
 echo -ne "\e[36m Extracting \e[0m"
-unzip /tmp/frontend.zip		&>>LOGFILE
+unzip /tmp/frontend.zip		&>>$LOGFILE
 mv frontend-main/* .
 mv static/* .
 rm -rf frontend-main README.md
