@@ -3,7 +3,7 @@
 source ./common.sh
 
 COMPONENT=frontend
-LOGFILE=/tmp/$COMPONENT.log
+LOGFILE="/tmp/$COMPONENT.log"
 
 echo -e "\e[92m############ $COMPONENT Installation started ############\e[0m"
 
