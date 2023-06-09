@@ -21,7 +21,9 @@ status $?
 
 echo -ne "\e[36m Starting $COMPONENT \e[0m"
 systemctl daemon-reload mongod &>>$LOGFILE
+status $?
 systemctl enable mongod &>>$LOGFILE
+status $?
 #using restart so that there is no error even if the script is run when mongodb has already started
 systemctl restart mongodb &>>$LOGFILE
 status $?
