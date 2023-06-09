@@ -20,10 +20,10 @@ sed -i -e "s/127.0.0.1/0.0.0.0/" /etc/mongod.conf
 status $?
 
 echo -ne "\e[36m Starting $COMPONENT \e[0m"
-systemctl daemon-reload mongod
-systemctl enable mongod
+systemctl daemon-reload mongod &>>$LOGFILE
+systemctl enable mongod &>>$LOGFILE
 #using restart so that there is no error even if the script is run when mongodb has already started
-systemctl restart mongodb
+systemctl restart mongodb &>>$LOGFILE
 status $?
 
 echo -ne "\e[36m Downloading the $COMPONENT Schema \e[0m"
