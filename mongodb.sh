@@ -23,7 +23,7 @@ echo -ne "\e[36m Starting $COMPONENT \e[0m"
 systemctl daemon-reload
 systemctl enable mongod
 #using restart so that there is no error even if the script is run when mongodb has already started
-systemctl restart mongodb
+systemctl restart mongod
 status $?
 
 echo -ne "\e[36m Downloading the $COMPONENT Schema \e[0m"
