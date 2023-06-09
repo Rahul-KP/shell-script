@@ -2,8 +2,8 @@
 
 status() {
 	if [ $1 -eq 0 ] ; then
-		echo -ne "\e[32msuccess\e[0m"
+		echo -e "\e[32m success\n\e[0m"
 	else
-		echo -ne "\e[31mfailure\e[0m"
+		echo -e "\e[31m failure\n\e[0m"
 	fi
 }
