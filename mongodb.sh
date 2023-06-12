@@ -32,7 +32,7 @@ status $?
 
 echo -ne "\e[36m Extracting the $COMPONENT Schema \e[0m"
 cd /tmp
-unzip mongodb.zip &>>$LOGFILE
+unzip mongodb.zip -o &>>$LOGFILE
 status $?
 
 echo -ne "\e[36m Injecting the $COMPONENT Schema \e[0m"
