@@ -37,8 +37,8 @@ status $?
 
 echo -ne "\e[36m Injecting the $COMPONENT Schema \e[0m"
 cd mongodb-main
-mongo < catalogue.js
-mongo < users.js
+mongo < catalogue.js &>>$LOGFILE
+mongo < users.js &>>$LOGFILE
 status $?
 
 echo -e "\e[92m############ $COMPONENT Installation is completed ############\e[0m"
