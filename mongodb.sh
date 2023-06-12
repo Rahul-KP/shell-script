@@ -28,10 +28,12 @@ status $?
 
 echo -ne "\e[36m Downloading the $COMPONENT Schema \e[0m"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
+status $?
 
 echo -ne "\e[36m Extracting the $COMPONENT Schema \e[0m"
 cd /tmp
 unzip mongodb.zip &>>$LOGFILE
+status $?
 
 echo -ne "\e[36m Injecting the $COMPONENT Schema \e[0m"
 cd mogodb-main
