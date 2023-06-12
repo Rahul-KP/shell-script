@@ -36,7 +36,7 @@ unzip -o mongodb.zip &>>$LOGFILE
 status $?
 
 echo -ne "\e[36m Injecting the $COMPONENT Schema \e[0m"
-cd mogodb-main
+cd mongodb-main
 mongo < catalogue.js
 mongo < users.js
 status $?
