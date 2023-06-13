@@ -8,13 +8,13 @@ source ./common.sh
 echo -e "\e[92m############ $COMPONENT Installation started ############\e[0m"
 
 echo -ne "\e[36m Downloading and Installing NodeJS \e[0m"
-curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
+curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>>$LOGFILE
 yum install nodejs -y &>>$LOGFILE
 status $?
 
 #Add user only if user does not exist
 id $USER &>>LOGFILE
-if [$? -ne 0] ; then
+if [ $? -ne 0 ] ; then
     echo -ne "\e[36m creating $USER user \e[0m"
     useradd $USER &>>$LOGFILE
     status $?
