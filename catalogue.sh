@@ -13,16 +13,16 @@ yum install nodejs -y &>>$LOGFILE
 status $?
 
 #Add user only if user does not exist
-id $USER &>>LOGFILE
-if [ $? -ne 0 ] ; then
-    echo -ne "\e[36m creating $USER user \e[0m"
-    useradd $USER &>>$LOGFILE
-    status $?
-fi
+# id $USER &>>LOGFILE
+# if [ $? -ne 0 ] ; then
+#     echo -ne "\e[36m creating $USER user \e[0m"
+#     useradd $USER &>>$LOGFILE
+#     status $?
+# fi
 
-echo -ne "\e[36m Switching to $USER user \e[0m"
-su - $USER
-status $?
+# echo -ne "\e[36m Switching to $USER user \e[0m"
+# su - $USER
+# status $?
 
 echo -ne "\e[36m Downloading the $COMPONENT component \e[0m"
 curl -s -L -o /tmp/$COMPONENT.zip  "https://github.com/stans-robot-project/catalogue/archive/main.zip"
