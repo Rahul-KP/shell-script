@@ -25,7 +25,7 @@ status $?
 # status $?
 
 echo -ne "\e[36m Downloading the $COMPONENT component \e[0m"
-curl -s -L -o /tmp/$COMPONENT.zip  "https://github.com/stans-robot-project/catalogue/archive/main.zip"
+curl -s -L -o /tmp/$COMPONENT.zip  "https://github.com/stans-robot-project/catalogue/archive/main.zip" &>>$LOGFILE
 status $?
 
 echo -ne "\e[36m Extracting the $COMPONENT component \e[0m"
