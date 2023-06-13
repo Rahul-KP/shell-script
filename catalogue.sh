@@ -25,12 +25,13 @@ status $?
 # status $?
 
 echo -ne "\e[36m Downloading the $COMPONENT component \e[0m"
-curl -s -L -o /tmp/$COMPONENT.zip  "https://github.com/stans-robot-project/catalogue/archive/main.zip" &>>$LOGFILE
+curl -s -L -o /tmp/$COMPONENT.zip  "https://github.com/stans-robot-project/catalogue/archive/main.zip"
 status $?
 
 echo -ne "\e[36m Extracting the $COMPONENT component \e[0m"
 cd /home/$USER
-unzip -o /tmp/$COMPONENT.zip 
+rm -rf $COMPONENT &>>$LOGFILE
+unzip -o /tmp/$COMPONENT.zip &>>$LOGFILE
 status $?
 
 echo -ne "\e[36m Generating npm $COMPONENT artifacts \e[0m"
