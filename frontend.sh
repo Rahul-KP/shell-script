@@ -29,6 +29,10 @@ rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 status $?
 
+echo -ne "\e[36m Configuring reverse proxy settings \e[0m"
+for component in catalogue; do
+    sed -i -e "/$component/s/localhost/$component.roboshop.internal/" /etc/nginx/default.d/roboshop.conf
+done
 echo -ne "\e[36m Starting Nginx server \e[0m"
 systemctl daemon-reload
 systemctl enable nginx	
