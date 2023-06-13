@@ -41,13 +41,13 @@ npm install &>>$LOGFILE
 status $?
 
 echo -ne "\e[36m Updating SystemD file with correct IP address \e[0m"
-sed -i -e "s/MONGO_DNSNAME/$COMPONENT.$USER.internal" ./systemd.service
+sed -i -e 's/MONGO_DNSNAME/$COMPONENT.$USER.internal' ./systemd.service
 status $?
 
-echo -ne "\e[36m Switch to root user \e[0m"
-#su -
-exit
-status $?
+# echo -ne "\e[36m Switch to root user \e[0m"
+# #su -
+# exit
+# status $?
 
 echo -ne "\e[36m Setup and start the $COMPONENT service \e[0m"
 mv /home/$USER/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
