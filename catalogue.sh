@@ -56,4 +56,4 @@ systemctl restart catalogue &>>$LOGFILE
 systemctl enable catalogue &>>$LOGFILE
 status $?
 
-echo -ne "\e[36m Setup and start the $COMPONENT service \e[0m"
+echo -ne "\e[36m Installation of $COMPONENT service is complete \e[0m"
