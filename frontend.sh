@@ -30,7 +30,7 @@ mv localhost.conf /etc/nginx/default.d/roboshop.conf
 status $?
 
 echo -ne "\e[36m Configuring reverse proxy settings \e[0m"
-for component in catalogue user cart shipping; do
+for component in catalogue user cart shipping payment; do
     sed -i -e "/$component/s/localhost/$component.roboshop.internal/" /etc/nginx/default.d/roboshop.conf
 done
 status $?
