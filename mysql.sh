@@ -15,8 +15,8 @@ yum install mysql-community-server -y &>>$LOGFILE
 status $?
 
 echo -ne "\e[36m Starting $COMPONENT server \e[0m"
-systemctl enable $COMPONENT
-systemctl restart $COMPONENT
+systemctl enable mysqld
+systemctl restart mysqld
 status $?
 
 # echo -ne "\e[36m updating password \e[0m"
