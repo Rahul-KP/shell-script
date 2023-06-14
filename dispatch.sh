@@ -7,7 +7,7 @@ source ./common.sh
 echo -e "\e[92m############ $COMPONENT Installation started ############\e[0m"
 
 echo -ne "\e[36m Installing Goloang \e[0m"
-yum install golang -y
+yum install golang -y &>>$LOGFILE
 status $?
 
 CREATE_USER
@@ -19,4 +19,3 @@ go get
 go build
 
 CONFIGURE_SERVICE
-echo -e "\e[92m############ $COMPONENT Installation complete ############\e[0m"
