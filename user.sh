@@ -42,8 +42,8 @@ status $?
 echo -ne "\e[36m Setup and start the $COMPONENT service \e[0m"
 mv /home/$USER/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
 systemctl daemon-reload &>>$LOGFILE
-systemctl restart catalogue &>>$LOGFILE
-systemctl enable catalogue &>>$LOGFILE
+systemctl restart $COMPONENT &>>$LOGFILE
+systemctl enable $COMPONENT &>>$LOGFILE
 status $?
 
 echo -ne "\e[36m############ Installation of $COMPONENT component is complete ############\e[0m"
