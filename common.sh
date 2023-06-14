@@ -115,6 +115,6 @@ PYTHON() {
     echo -n "Updating the uid and gid in the $COMPONENT.ini file"
     sed -i -e "/^uid/ c uid=${USERID}" -e "/^gid/ c gid=${GROUPID}"  /home/${USER}/${COMPONENT}-main/${COMPONENT}.ini
     
-    CONFIGURE_SVC
+    CONFIGURE_SERVICE
 
 }
