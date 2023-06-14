@@ -82,7 +82,7 @@ JAVA() {
 	echo -e "\e[92m############ $COMPONENT Component Installation Started ############\e[0m"
 
 	echo -ne "\e[36m Installing Maven \e[0m"
-	yum install maven -y
+	yum install maven -y &>>$LOGFILE
 	status $?
 
 	CREATE_USER
