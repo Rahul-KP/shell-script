@@ -75,7 +75,7 @@ NODEJS() {
 MVN_PACKAGE() {
 	mv $COMPONENT-main $COMPONENT
 	cd $COMPONENT
-	mvn clean package 
+	mvn clean package &>>$LOGFILE
 	mv target/shipping-1.0.jar shipping.jar
 }
 JAVA() {
