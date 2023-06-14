@@ -11,13 +11,13 @@ curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>>
 yum install nodejs -y &>>$LOGFILE
 status $?
 
-#Add user only if user does not exist
-# id $USER &>>LOGFILE
-# if [ $? -ne 0 ] ; then
-#     echo -ne "\e[36m creating $USER user \e[0m"
-#     useradd $USER &>>$LOGFILE
-#     status $?
-# fi
+Add user only if user does not exist
+id $USER &>>LOGFILE
+if [ $? -ne 0 ] ; then
+    echo -ne "\e[36m creating $USER user \e[0m"
+    useradd $USER &>>$LOGFILE
+    status $?
+fi
 
 # echo -ne "\e[36m Switching to $USER user \e[0m"
 # su - $USER
