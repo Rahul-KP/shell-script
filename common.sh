@@ -42,7 +42,7 @@ NPM_INSTALL() {
 
 CONFIGURE_SERVICE() {
 	echo -ne "\e[36m Updating SystemD file with correct IP address \e[0m"
-	sed -i -e "s/MONGO_ENDPOINT/mongodb.$USER.internal/" -e "s/REDIS_ENDPOINT/redis.$USER.internal/" -e "s/CATALOGUE_ENDPOINT/catalogue.$USER.internal/" ./systemd.service
+	sed -i -e "s/MONGO_ENDPOINT/mongodb.$USER.internal/" -e "s/REDIS_ENDPOINT/redis.$USER.internal/" -e "s/CATALOGUE_ENDPOINT/catalogue.$USER.internal/" -e "s/CARTENDPOINT/cart.$USER.internal/" -e"s/DBHOST/mysql.$USER.internal" ./systemd.service
 	status $?
 
 	echo -ne "\e[36m Setup and start the $COMPONENT service \e[0m"
@@ -70,4 +70,23 @@ NODEJS() {
 	NPM_INSTALL
 
 	CONFIGURE_SERVICE
+}
+
+MVN_INSTALL() {
+	mv $COMPONENT-main $COMPONENT
+	cd $COMPONENT
+	mvn clean package 
+	mv target/shipping-1.0.jar shipping.jar
+}
+JAVA() {
+	echo -e "\e[92m############ $COMPONENT Component Installation Started ############\e[0m"
+	
+	CREATE_USER
+
+	DOWNLOAD_AND_EXTRACT
+
+	MVN_INSTALL
+
+	CONFIGURE_SERVICE
+
 }
