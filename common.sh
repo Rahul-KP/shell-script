@@ -42,7 +42,7 @@ NPM_INSTALL() {
 
 CONFIGURE_SERVICE() {
 	echo -ne "\e[36m Updating SystemD file with correct IP address \e[0m"
-	sed -i -e "s/MONGO_ENDPOINT/mongodb.$USER.internal/" -e "s/REDIS_ENDPOINT/redis.$USER.internal/" -e "s/CATALOGUE_ENDPOINT/catalogue.$USER.internal/" -e "s/CARTENDPOINT/cart.$USER.internal/" -e"s/DBHOST/mysql.$USER.internal" ./systemd.service
+	sed -i -e "s/MONGO_ENDPOINT/mongodb.$USER.internal/" -e "s/REDIS_ENDPOINT/redis.$USER.internal/" -e "s/CATALOGUE_ENDPOINT/catalogue.$USER.internal/" -e "s/CARTENDPOINT/cart.$USER.internal/" -e"s/DBHOST/mysql.$USER.internal/" ./systemd.service
 	status $?
 
 	echo -ne "\e[36m Setup and start the $COMPONENT service \e[0m"
@@ -72,7 +72,7 @@ NODEJS() {
 	CONFIGURE_SERVICE
 }
 
-MVN_INSTALL() {
+MVN_PACKAGE() {
 	mv $COMPONENT-main $COMPONENT
 	cd $COMPONENT
 	mvn clean package 
@@ -80,7 +80,11 @@ MVN_INSTALL() {
 }
 JAVA() {
 	echo -e "\e[92m############ $COMPONENT Component Installation Started ############\e[0m"
-	
+
+	echo -ne "\e[36m Installing Maven \e[0m"
+	yum install maven -y
+	status $?
+
 	CREATE_USER
 
 	DOWNLOAD_AND_EXTRACT
