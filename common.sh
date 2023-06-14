@@ -1,6 +1,7 @@
 #! bin/bash
 
 LOGFILE="/tmp/${COMPONENT}.log"
+USER=roboshop
 
 status() {
 	if [ $1 -eq 0 ] ; then
