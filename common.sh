@@ -105,7 +105,8 @@ PYTHON() {
     DOWNLOAD_AND_EXTRACT         # calling DOWNLOAD_AND_EXTRACT  function download the content
 
     echo -n "Installing $COMPONENT"
-    cd /home/${USER}/${COMPONENT}-main/
+	mv $COMPONENT-main $COMPONENT
+    cd /home/${USER}/${COMPONENT}/
     pip3 install -r requirements.txt    &>> $LOGFILE 
     status $?
 
@@ -113,7 +114,7 @@ PYTHON() {
     GROUPID=$(id -g roboshop) 
 
     echo -n "Updating the uid and gid in the $COMPONENT.ini file"
-    sed -i -e "/^uid/ c uid=${USERID}" -e "/^gid/ c gid=${GROUPID}"  /home/${USER}/${COMPONENT}-main/${COMPONENT}.ini
+    sed -i -e "/^uid/ c uid=${USERID}" -e "/^gid/ c gid=${GROUPID}"  /home/${USER}/${COMPONENT}/${COMPONENT}.ini
     
     CONFIGURE_SERVICE
 
